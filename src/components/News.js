@@ -127,7 +127,7 @@ export class News extends Component {
 	async componentDidMount() {
 		const { progressBar, apiKey } = this.props;
 		progressBar(10);
-		let url = `https://newsapi.org/v2/top-headlines?apiKey=${apiKey}&country=in`;
+		let url = `https://newsapi.org/v2/top-headlines?apiKey=${apiKey}&country=us`;
 		progressBar(30);
 		this.setState({ loading: true });
 		progressBar(50);
@@ -200,7 +200,7 @@ export class News extends Component {
 					>
 						{this.state.articles.length !== this.state.totalResults
 							? ''
-							: '-------------------------------------'}
+							: 'No relevent news found.'}
 					</div>
 				</div>
 			</>
