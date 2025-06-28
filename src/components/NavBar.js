@@ -8,27 +8,21 @@ export class NavBar extends Component {
 			searchCategory: '',
 			textColor: 'white',
 			bgColor: 'black',
-			theme:'light'
+			theme: 'light',
 		};
 	}
 
 	searchKeyWord = () => {
 		const { keyWord } = this.props;
-		{
-			keyWord(document.getElementById('searchKeyWord').value);
-		}
+		keyWord(document.getElementById('searchKeyWord').value);
 	};
 	changeCountry = (value) => {
 		const { country } = this.props;
-		{
-			country(value);
-		}
+		country(value);
 	};
 	changeCategory = (value) => {
 		const { category } = this.props;
-		{
-			category(value);
-		}
+		category(value);
 	};
 	searchLength = () => {
 		const searchSize = document.getElementById('searchKeyWord').value.length;
@@ -83,17 +77,17 @@ export class NavBar extends Component {
 		this.setState({ searchCategory: 'Technology' });
 	};
 	themeChanger = () => {
-		const { theme } = this.props
-		if (this.state.theme == 'light') {
-			theme('dark')
-			this.setState({textColor:'white'})
-			this.setState({ bgColor: 'black' })
-			this.setState({theme:'dark'})
+		const { theme } = this.props;
+		if (this.state.theme === 'light') {
+			theme('dark');
+			this.setState({ textColor: 'white' });
+			this.setState({ bgColor: 'black' });
+			this.setState({ theme: 'dark' });
 		} else {
-			theme('light')
-			this.setState({textColor:'black'})
-			this.setState({bgColor:'white'})
-			this.setState({theme:'light'})
+			theme('light');
+			this.setState({ textColor: 'black' });
+			this.setState({ bgColor: 'white' });
+			this.setState({ theme: 'light' });
 		}
 	};
 
@@ -278,7 +272,7 @@ export class NavBar extends Component {
 									onChange={this.searchLength}
 								/>
 								<button
-									disabled={this.state.searchSize == 0}
+									disabled={this.state.searchSize === 0}
 									className="btn btn-outline-success"
 									type="button"
 									onClick={this.searchKeyWord}

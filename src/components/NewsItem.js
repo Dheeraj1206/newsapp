@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 export class NewsItem extends Component {
 	render() {
 		const { title, imageurl, url, description, date, theme } = this.props;
-		var bgColor = theme == 'dark' ? '#212528' : 'white';
-		var textColor = theme == 'dark' ? 'white' : 'black';
+		var bgColor = theme === 'dark' ? '#212528' : 'white';
+		var textColor = theme === 'dark' ? 'white' : 'black';
 
 		return (
 			<div className="container my-5">
@@ -29,7 +29,12 @@ export class NewsItem extends Component {
 						<p className="card-text">
 							<small>{new Date(date).toGMTString()}</small>
 						</p>
-						<a href={url} className="btn btn-primary" target="_blank">
+						<a
+							href={url}
+							className="btn btn-primary"
+							target="_blank"
+							rel="noreferrer"
+						>
 							Read More
 						</a>
 					</div>

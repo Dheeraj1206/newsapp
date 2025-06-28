@@ -138,7 +138,7 @@ export class News extends Component {
 			<>
 				<div
 					style={{
-						backgroundColor: this.props.theme == 'dark' ? '#010409' : 'white',
+						backgroundColor: this.props.theme === 'dark' ? '#010409' : 'white',
 					}}
 				>
 					<h1 className="text-center">

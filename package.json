@@ -24,7 +24,8 @@
 		"backend": "cd server && npm run dev",
 		"backend:start": "cd server && npm start",
 		"dev": "concurrently \"npm run backend\" \"npm start\"",
-		"install-all": "npm install && npm run setup-backend"
+		"install-all": "npm install && npm run setup-backend",
+		"vercel-build": "CI=false npm run build"
 	},
 	"eslintConfig": {
 		"extends": [
