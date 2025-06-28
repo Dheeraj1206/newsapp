@@ -99,9 +99,16 @@ export class NavBar extends Component {
 					data-bs-theme={this.state.theme}
 				>
 					<div className="container-fluid">
-						<a className="navbar-brand" href="">
+						<button
+							className="navbar-brand btn btn-link"
+							style={{
+								border: 'none',
+								background: 'none',
+								textDecoration: 'none',
+							}}
+						>
 							NewsLetter
-						</a>
+						</button>
 						<button
 							className="navbar-toggler"
 							type="button"
@@ -146,60 +153,67 @@ export class NavBar extends Component {
 									</button>
 									<ul className="dropdown-menu">
 										<li>
-											<a
+											<button
 												className="dropdown-item"
+												type="button"
 												onClick={this.swapBusinessCategory}
 											>
 												Business
-											</a>
+											</button>
 										</li>
 										<li>
-											<a
+											<button
 												className="dropdown-item"
+												type="button"
 												onClick={this.swapEntertainmentCategory}
 											>
 												Entertainment
-											</a>
+											</button>
 										</li>
 										<li>
-											<a
+											<button
 												className="dropdown-item"
+												type="button"
 												onClick={this.swapGeneralCategory}
 											>
 												General
-											</a>
+											</button>
 										</li>
 										<li>
-											<a
+											<button
 												className="dropdown-item"
+												type="button"
 												onClick={this.swapHealthCategory}
 											>
 												Health
-											</a>
+											</button>
 										</li>
 										<li>
-											<a
+											<button
 												className="dropdown-item"
+												type="button"
 												onClick={this.swapScienceCategory}
 											>
 												Science
-											</a>
+											</button>
 										</li>
 										<li>
-											<a
+											<button
 												className="dropdown-item"
+												type="button"
 												onClick={this.swapSportsCategory}
 											>
 												Sports
-											</a>
+											</button>
 										</li>
 										<li>
-											<a
+											<button
 												className="dropdown-item"
+												type="button"
 												onClick={this.swapTechnologyCategory}
 											>
 												Technology
-											</a>
+											</button>
 										</li>
 									</ul>
 								</div>
