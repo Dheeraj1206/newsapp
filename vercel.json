@@ -16,7 +16,7 @@
 	"routes": [
 		{
 			"src": "/api/(.*)",
-			"dest": "server/server.js"
+			"dest": "/server/server.js"
 		},
 		{
 			"src": "/(.*)",
@@ -25,5 +25,7 @@
 	],
 	"env": {
 		"NODE_ENV": "production"
-	}
+	},
+	"buildCommand": "npm run build",
+	"outputDirectory": "build"
 }

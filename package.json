@@ -24,8 +24,7 @@
 		"backend": "cd server && npm run dev",
 		"backend:start": "cd server && npm start",
 		"dev": "concurrently \"npm run backend\" \"npm start\"",
-		"install-all": "npm install && npm run setup-backend",
-		"vercel-build": "npm run build"
+		"install-all": "npm install && npm run setup-backend"
 	},
 	"eslintConfig": {
 		"extends": [
@@ -46,7 +45,7 @@
 		]
 	},
 	"devDependencies": {
-		"concurrently": "^8.2.2",
-		"gh-pages": "^5.0.0"
+		"gh-pages": "^5.0.0",
+		"concurrently": "^8.2.2"
 	}
 }
