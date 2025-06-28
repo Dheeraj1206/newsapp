@@ -221,7 +221,7 @@ export class NavBar extends Component {
 								</button>
 							</div>
 							<form className="d-flex" role="search">
-								<div className="dropdown me-2">
+								{/* <div className="dropdown me-2">
 									<button
 										className="btn btn-secondary dropdown-toggle"
 										type="button"
@@ -268,7 +268,7 @@ export class NavBar extends Component {
 											</a>
 										</li>
 									</ul>
-								</div>
+								</div> */}
 								<input
 									className="form-control me-2"
 									type="search"

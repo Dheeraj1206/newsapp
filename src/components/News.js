@@ -18,13 +18,13 @@ export class News extends Component {
 			incompleteUrl: false,
 			unfinishedUrl: null,
 			bgColor: 'white',
-			textColor:'black'
+			textColor: 'black',
 		};
 	}
 
 	async componentDidUpdate() {
 		const { keyWord, apiUrl, country, category } = this.props;
-		let finalUrl = `${apiUrl}&q=${keyWord}&country=${country}&category=${category}`;
+		let finalUrl = `${apiUrl}?q=${keyWord}&country=${country}&category=${category}`;
 		if (finalUrl !== this.state.finalUrl) {
 			this.setState({
 				finalUrl: finalUrl,
@@ -94,7 +94,7 @@ export class News extends Component {
 			progressBar(100);
 		} else {
 			progressBar(10);
-			let url = `${apiUrl + '&country=in'}&page=${this.state.page + 1}`;
+			let url = `${apiUrl}?country=in&page=${this.state.page + 1}`;
 			progressBar(30);
 			let data = await fetch(url);
 			progressBar(50);
@@ -110,29 +110,15 @@ export class News extends Component {
 		}
 	};
 
-	// stateValue = () => {
-	// 	const { apiKey, apiUrl } = this.props;
-	// 	console.log('totalResults=' + this.state.totalResults);
-	// 	console.log('articles=' + this.state.articles.length);
-	// 	console.log('finalUrl=' + this.state.finalUrl);
-	// 	console.log('page=' + this.state.page);
-	// 	console.log('pageModified=' + this.state.pageModified);
-	// 	console.log('apiKey=' + apiKey);
-	// 	console.log('apiUrl=' + apiUrl);
-	// 	console.log(
-	// 		'hasMore' + this.state.articles.length === this.state.totalResults
-	// 	);
-	// };
-
 	async componentDidMount() {
-		const { progressBar, apiKey } = this.props;
+		const { progressBar } = this.props;
 		progressBar(10);
-		let url = `https://newsapi.org/v2/top-headlines?apiKey=${apiKey}&country=us`;
+		let url = `${this.props.apiUrl}?country=us`;
 		progressBar(30);
 		this.setState({ loading: true });
 		progressBar(50);
 		this.setState({
-			finalUrl: `https://newsapi.org/v2/top-headlines?apiKey=${apiKey}&q=&country=&category=`,
+			finalUrl: `${this.props.apiUrl}?q=&country=&category=`,
 		});
 		let data = await fetch(url);
 		progressBar(70);
@@ -141,22 +127,23 @@ export class News extends Component {
 			articles: parsedData.articles,
 			totalResults: parsedData.totalResults,
 			loading: false,
-			unfinishedUrl: `https://newsapi.org/v2/top-headlines?apiKey=${apiKey}&q=&country=&category=`,
-			finalUrl: `https://newsapi.org/v2/top-headlines?apiKey=${apiKey}&q=&country=&category=`,
-			defaultUrl: `https://newsapi.org/v2/top-headlines?apiKey=${apiKey}&q=&country=in&category=`,
+			unfinishedUrl: `${this.props.apiUrl}?q=&country=&category=`,
+			finalUrl: `${this.props.apiUrl}?q=&country=&category=`,
+			defaultUrl: `${this.props.apiUrl}?q=&country=in&category=`,
 		});
 		progressBar(100);
 	}
 	render() {
 		return (
 			<>
-				<div style={{backgroundColor:(this.props.theme=='dark'?'#010409':'white')}}>
+				<div
+					style={{
+						backgroundColor: this.props.theme == 'dark' ? '#010409' : 'white',
+					}}
+				>
 					<h1 className="text-center">
 						News Heading -{this.capitalizeFirstLetter(this.props.category)}
 					</h1>
-					{/* <button onClick={this.stateValue} style={{ position: 'fixed' }}>
-					Reveal
-				</button> */}
 					<InfiniteScroll
 						dataLength={this.state.articles.length}
 						next={this.fetchData}

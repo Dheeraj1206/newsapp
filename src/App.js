@@ -2,19 +2,17 @@ import React, { Component } from 'react';
 import NavBar from './components/NavBar';
 import News from './components/News';
 import LoadingBar from 'react-top-loading-bar';
-
+import { getApiUrl } from './config';
 
 export default class App extends Component {
 	constructor() {
-		const apiKey = process.env.REACT_APP_API_KEY;
 		super();
 		this.state = {
-			apiUrl: `https://newsapi.org/v2/top-headlines?apiKey=${apiKey}`,
+			apiUrl: getApiUrl('/api/news'),
 			keyWord: '',
 			country: '',
 			category: '',
 			progress: 0,
-			apiKey: apiKey,
 			theme: 'light',
 		};
 	}
@@ -50,10 +48,9 @@ export default class App extends Component {
 					progress={this.state.progress}
 					onLoaderFinished={0}
 				/>
-				
+
 				<News
 					apiUrl={this.state.apiUrl}
-					apiKey={this.state.apiKey}
 					keyWord={this.state.keyWord}
 					country={this.state.country}
 					category={this.state.category}
